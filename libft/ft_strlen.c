@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_strlen.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:13:03 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/19 15:13:04 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+size_t	ft_strlen(const char *s)
 {
-	char	*s;
-	char	*str_len;
+	size_t	c;
 
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	c = 0;
+	while (*s)
+	{
+		s++;
+		c++;
+	}
+	return (c);
 }

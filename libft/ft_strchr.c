@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_strchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:12:09 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/19 15:12:10 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+/*
+Locates the first occurrence of c (converted to a char) in string s.
+returns NULL if the character does not appear in the string
+*/
+char	*ft_strchr(const char *s, int c)
 {
-	char	*s;
-	char	*str_len;
-
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	if ((char)c == 0)
+	{
+		while (*s)
+			s++;
+		return ((char *)s);
+	}
+	else
+	{
+		while (*s)
+		{
+			if (*s == (char)c)
+				return ((char *)s);
+			s++;
+		}
+	}
+	return (NULL);
 }

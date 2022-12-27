@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_memcmp.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:10:57 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/23 12:18:40 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+/*
+The memcmp() function compares byte string s1 against byte string s2.
+Both strings are assumed to be n bytes long.
+*/
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*s;
-	char	*str_len;
+	size_t	i;
+	int		result;
 
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	i = 0;
+	result = 0;
+	while ((result == 0) && (i < n))
+	{
+		result = *(unsigned char *)(s1 + i) - *(unsigned char *)(s2 + i);
+		if (result)
+			return (result);
+		i++;
+	}
+	return (result);
 }

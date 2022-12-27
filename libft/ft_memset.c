@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_memset.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:11:22 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/19 15:11:23 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+/*
+Writes the memory with a fixed char.
+Also useful to clean memory (fill with 0).
+*/
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char	*s;
-	char	*str_len;
+	int		i;
+	void	*p_iter;
 
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	i = len;
+	p_iter = b;
+	while (i)
+	{
+		*(unsigned char *)p_iter = c;
+		p_iter++;
+		i--;
+	}
+	return (b);
 }

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_lstlast_bonus.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:09:45 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/19 15:09:47 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	*s;
-	char	*str_len;
+	t_list	*lst_i;
 
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	if (lst == NULL)
+		return (NULL);
+	lst_i = lst;
+	while (lst_i->next && lst_i->next != lst)
+		lst_i = lst_i->next;
+	return (lst_i);
 }

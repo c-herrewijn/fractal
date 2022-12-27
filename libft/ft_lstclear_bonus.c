@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_lstclear_bonus.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:08:56 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/23 13:30:55 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+/*
+deletes all nodes in a linked list after and including lst
+the content fo the nodes is deleted by function del
+*/
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	char	*s;
-	char	*str_len;
+	t_list	*next;
+	t_list	*first;
 
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	if (lst && del)
+	{		
+		first = *lst;
+		while (*lst)
+		{
+			next = (*lst)->next;
+			if (next == first)
+				break ;
+			ft_lstdelone(*lst, del);
+			*lst = next;
+		}
+	}
 }

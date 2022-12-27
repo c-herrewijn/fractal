@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_strdup.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:12:20 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/23 12:18:40 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+/*
+Duplicates a string, and reseves memory via ft_calloc.
+*/
+char	*ft_strdup(const char *s1)
 {
-	char	*s;
-	char	*str_len;
+	size_t		len;
+	size_t		i;
+	const char	*s_iter;
+	char		*s2;
 
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	i = 0;
+	len = 0;
+	s_iter = s1;
+	while (*s_iter)
+	{
+		len++;
+		s_iter++;
+	}
+	s2 = (char *)ft_calloc(len + 1, sizeof(char));
+	if (s2 == NULL)
+		return (s2);
+	while (i < len)
+	{
+		*(s2 + i) = *(s1 + i);
+		i++;
+	}
+	return (s2);
 }

@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_calloc.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:07:22 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/11/13 11:10:44 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+/*
+Allocates bytes based on object size and nr. of objects
+Makes sure the allocated volume is empty
+*/
+void	*ft_calloc(size_t count, size_t size)
 {
-	char	*s;
-	char	*str_len;
+	char	*str;
+	size_t	i;
 
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	str = malloc(count * size);
+	if (str == NULL)
+		return (str);
+	i = 0;
+	while (i < (count * size))
+	{
+		str[i] = '\0';
+		i++;
+	}
+	return (str);
 }

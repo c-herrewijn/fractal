@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_lstiter_bonus.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:09:25 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/23 13:32:16 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char	*s;
-	char	*str_len;
+	t_list	*first;
 
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	if (lst && f)
+	{		
+		first = lst;
+		while (lst)
+		{
+			f(lst->content);
+			if (lst->next == first)
+				break ;
+			lst = lst->next;
+		}
+	}
 }

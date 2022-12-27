@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_putnbr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:11:46 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/21 12:47:42 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*s;
-	char	*str_len;
+	int	num_to_write;
 
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else
+	{
+		if (n < 0)
+		{
+			n = n * (-1);
+			write(fd, "-", 1);
+		}
+		if (n < 10)
+		{
+			num_to_write = n + 48;
+			write(fd, &num_to_write, 1);
+		}
+		else
+		{
+			ft_putnbr_fd(n / 10, fd);
+			num_to_write = (n % 10) + 48;
+			write(fd, &num_to_write, 1);
+		}
+	}
 }

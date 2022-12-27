@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_memmove.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:11:14 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/19 15:11:15 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+/*
+Copies n bytes from src to dest.
+The move is also successful in case src and dest overlap
+*/
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*s;
-	char	*str_len;
-
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	if (src > dst)
+		ft_memcpy(dst, src, len);
+	else
+	{
+		while (len)
+		{
+			*(unsigned char *)(dst + len - 1)
+				= *(unsigned char *)(src + len - 1);
+			len--;
+		}
+	}
+	return (dst);
 }

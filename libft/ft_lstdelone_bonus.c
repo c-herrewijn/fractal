@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_lstdelone_bonus.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:09:06 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/23 13:31:21 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+/*
+deletest the content of the node, by applying functtion (del)
+then deletes the node
+*/
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	char	*s;
-	char	*str_len;
-
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	if (lst && del)
+	{
+		if (lst->content && del)
+			del(lst->content);
+		free(lst);
+	}
 }

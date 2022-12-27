@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_strrchr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:13:31 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/19 15:17:00 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+/*
+finds first char in string, searching right to left
+*/
+char	*ft_strrchr(const char *s, int c)
 {
-	char	*s;
-	char	*str_len;
+	const char	*str_i;
 
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	str_i = s;
+	while (*str_i)
+	{
+		str_i++;
+	}
+	while (str_i >= s)
+	{
+		if (*str_i == (char)c)
+			return ((char *)str_i);
+		str_i--;
+	}
+	return (NULL);
 }

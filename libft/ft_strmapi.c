@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_strmapi.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/12/27 20:06:18 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:13:11 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/23 13:24:19 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(void)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*s;
-	char	*str_len;
+	size_t	i;
+	char	*new_str;
 
-	s = "hello world!\n";
-	write(1, s, ft_strlen(s));
-	str_len = ft_itoa(ft_strlen(s));
-	write(1, str_len, ft_strlen(str_len));
-	return (0);
+	if (!s || !f)
+		return (0);
+	new_str = ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	if (new_str == NULL)
+		return (NULL);
+	i = 0;
+	while (i < ft_strlen(s))
+	{
+		new_str[i] = f(i, s[i]);
+		i++;
+	}
+	return (new_str);
 }
