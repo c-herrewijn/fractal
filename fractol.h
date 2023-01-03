@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:06:50 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/03 15:30:25 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/03 19:17:31 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,20 @@ typedef struct s_image
 	int		size_line;
 	int		endian;
 }	t_image;
+
+typedef struct s_grid
+{
+	double	re_min;
+	double	re_max;
+	double	im_min;
+	double	im_max;
+}	t_grid;
+
+typedef struct s_window
+{
+	int	width;
+	int	heigth;
+}	t_window;
 
 void	add_pixel(t_image *img, int x, int y, int color);
 int		mandelbrot_test(double re, double im, int depth);
