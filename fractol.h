@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:06:50 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/03 19:17:31 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/03 20:04:52 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ typedef struct s_window
 	int	heigth;
 }	t_window;
 
+void	define_grid(t_grid *grid);
+void	define_window(t_window *window);
 void	add_pixel(t_image *img, int x, int y, int color);
-int		mandelbrot_test(double re, double im, int depth);
+void	calc_mandelbrot(t_window window, t_grid grid, t_image *img);
 
 #endif
