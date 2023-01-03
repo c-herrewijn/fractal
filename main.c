@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/03 19:58:17 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/03 20:22:14 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	define_window(&window);
 	define_grid(&grid);
 	mlx = mlx_init();
-	mlx_window = mlx_new_window(mlx, 640, 640, "Fract-ol");
+	mlx_window = mlx_new_window(mlx, window.width, window.heigth, "Fract-ol");
 	img.img_ptr = mlx_new_image(mlx, 640, 640);
 	img.pixel_data = mlx_get_data_addr(
 			img.img_ptr, &img.bits_per_pixel, &img.size_line, &img.endian);
