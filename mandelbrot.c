@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fractol.h                                          :+:    :+:            */
+/*   math.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/27 20:06:50 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/03 15:30:25 by cherrewi      ########   odam.nl         */
+/*   Created: 2023/01/03 13:18:33 by cherrewi      #+#    #+#                 */
+/*   Updated: 2023/01/03 15:21:10 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-# include <stdio.h>
-# include <math.h>
-# include "libft/libft.h"
-# include "mlx/mlx.h"
+#include "fractol.h"
 
-typedef struct s_image
+int	mandelbrot_test(const double re, const double im, int depth)
 {
-	void	*img_ptr;
-	char	*pixel_data;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
-}	t_image;
+	int		i;
+	double	z_re;
+	double	z_im;
+	double	re_tmp;
+	double	im_tmp;
 
-void	add_pixel(t_image *img, int x, int y, int color);
-int		mandelbrot_test(double re, double im, int depth);
-
-#endif
+	z_re = re;
+	z_im = im;
+	i = 0;
+	while (i < depth)
+	{
+		if (pow(z_re, 2) + pow(z_im, 2) >= 4)
+			return (0);
+		re_tmp = pow(z_re, 2) - pow(z_im, 2) + re;
+		im_tmp = 2 * (z_re * z_im) + im;
+		z_re = re_tmp;
+		z_im = im_tmp;
+		i++;
+	}
+	return (1);
+}
