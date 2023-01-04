@@ -6,29 +6,40 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/03 20:22:14 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/04 17:04:16 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+int	key_event_handler(int keycode, t_mlx *mlx)
+{
+	printf("keycode: %d\n", keycode);
+	if (keycode == 53)
+	{
+		mlx_destroy_window(mlx->ptr, mlx->window);
+	}
+	return (1);
+}
+
 int	main(void)
 {
-	void		*mlx;
-	void		*mlx_window;
-	t_image		img;
 	t_window	window;	
 	t_grid		grid;
+	t_mlx		mlx;
+	t_image		img;
+	int			keydown_event;
+	int			key_mask;
 
-	define_window(&window);
-	define_grid(&grid);
-	mlx = mlx_init();
-	mlx_window = mlx_new_window(mlx, window.width, window.heigth, "Fract-ol");
-	img.img_ptr = mlx_new_image(mlx, 640, 640);
-	img.pixel_data = mlx_get_data_addr(
-			img.img_ptr, &img.bits_per_pixel, &img.size_line, &img.endian);
+	keydown_event = 2;
+	key_mask = 1L << 0;
+	window = define_window(640, 640);
+	grid = define_grid(-2, 2, -2, 2);
+	mlx = define_mlx(window);
+	img = define_img(mlx, window);
 	calc_mandelbrot(window, grid, &img);
-	mlx_put_image_to_window(mlx, mlx_window, img.img_ptr, 0, 0);
-	mlx_loop(mlx);
+	mlx_put_image_to_window(mlx.ptr, mlx.window, img.img_ptr, 0, 0);
+	mlx_hook(mlx.window, keydown_event, key_mask, key_event_handler, &mlx);
+	mlx_loop(mlx.ptr);
 	return (0);
 }
