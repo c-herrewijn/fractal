@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:06:50 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/06 17:25:42 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/09 16:58:00 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <math.h>
 # include "libft/libft.h"
 # include "mlx/mlx.h"
+
+typedef struct s_window
+{
+	int	width;
+	int	heigth;
+}	t_window;
 
 typedef struct s_image
 {
@@ -29,9 +35,9 @@ typedef struct s_image
 
 typedef struct s_mlx
 {
-	void	*ptr;
-	void	*window;
-	t_image	img;
+	void		*ptr;
+	t_window	*window;
+	t_image		img;
 }	t_mlx;
 
 typedef struct s_grid
@@ -41,12 +47,6 @@ typedef struct s_grid
 	double	im_min;
 	double	im_max;
 }	t_grid;
-
-typedef struct s_window
-{
-	int	width;
-	int	heigth;
-}	t_window;
 
 t_window	define_window(int width, int height);
 t_grid		define_grid(int re_min, int re_max, int im_min, int im_max);
