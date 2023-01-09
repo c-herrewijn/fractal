@@ -31,3 +31,5 @@ fclean: clean
 	cd $(LIBFTDIR) ; make fclean
 
 re: fclean all
+
+.PHONY: all clean fclean re
