@@ -6,19 +6,29 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 17:34:54 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/06 17:23:50 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/09 22:00:49 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_window	define_window(int width, int height)
+t_mlx_data	define_mlx_window(void)
 {
-	t_window	window;
+	t_mlx_data	win;
+	int			width;
+	int			height;
+	void		*mlx_p;
 
-	window.width = width;
-	window.heigth = height;
-	return (window);
+	width = 640;
+	height = 640;
+	mlx_p = mlx_init();
+	win.mlx_p = mlx_p;
+	win.win_p = mlx_new_window(mlx_p, width, height, "Fract-ol");
+	win.img = define_img(mlx_p, width, height);
+	win.width = width;
+	win.heigth = height;
+	win.grid = define_grid(0, 0, 0, 0);
+	return (win);
 }
 
 t_grid	define_grid(int re_min, int re_max, int im_min, int im_max)
@@ -32,23 +42,13 @@ t_grid	define_grid(int re_min, int re_max, int im_min, int im_max)
 	return (grid);
 }
 
-t_mlx	define_mlx(t_window win)
-{
-	t_mlx	mlx;
-
-	mlx.ptr = mlx_init();
-	mlx.window = mlx_new_window(mlx.ptr, win.width, win.heigth, "Fract-ol");
-	mlx.img = define_img(mlx.ptr, win);
-	return (mlx);
-}
-
-t_image	define_img(void *mlx_ptr, t_window window)
+t_image	define_img(void *mlx_p, int height, int width)
 {
 	t_image	img;
 
-	img.img_ptr = mlx_new_image(mlx_ptr, window.width, window.heigth);
+	img.img_p = mlx_new_image(mlx_p, width, height);
 	img.pixel_data = mlx_get_data_addr(
-			img.img_ptr, &img.bits_per_pixel, &img.size_line, &img.endian);
+			img.img_p, &img.bits_per_pixel, &img.size_line, &img.endian);
 	return (img);
 }
 

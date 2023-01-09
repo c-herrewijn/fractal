@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/03 13:18:33 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/03 20:03:50 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/09 22:04:01 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,27 @@ static int	mandelbrot_test(const double re, const double im, int depth)
 	return (1);
 }
 
-void	calc_mandelbrot(t_window window, t_grid grid, t_image *img)
+void	calc_mandelbrot(t_mlx_data *mlx)
 {
+	t_image		img;
 	double		cplx_re;
 	int			x;
 	double		cplx_im;
 	int			y;
 
+	img = mlx->img;
 	x = 0;
-	while (x < window.width)
+	while (x < mlx->width)
 	{
-		cplx_re = grid.re_min
-			+ ((double)x / window.width) * (grid.re_max - grid.re_min);
+		cplx_re = mlx->grid.re_min
+			+ ((double)x / mlx->width) * (mlx->grid.re_max - mlx->grid.re_min);
 		y = 0;
-		while (y < window.heigth)
+		while (y < mlx->heigth)
 		{
-			cplx_im = grid.im_min
-				+ ((double)y / window.heigth) * (grid.im_max - grid.im_min);
+			cplx_im = mlx->grid.im_min + ((double)y / mlx->heigth)
+				* (mlx->grid.im_max - mlx->grid.im_min);
 			if (mandelbrot_test(cplx_re, cplx_im, 100))
-				add_pixel(img, x, y, 0x00FF0000);
+				add_pixel(&img, x, y, 0x00FF0000);
 			y++;
 		}
 		x++;

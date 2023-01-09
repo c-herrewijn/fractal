@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:06:50 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/09 16:58:00 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/09 21:59:44 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,14 @@
 # include "libft/libft.h"
 # include "mlx/mlx.h"
 
-typedef struct s_window
-{
-	int	width;
-	int	heigth;
-}	t_window;
-
 typedef struct s_image
 {
-	void	*img_ptr;
+	void	*img_p;
 	char	*pixel_data;
 	int		bits_per_pixel;
 	int		size_line;
 	int		endian;
 }	t_image;
-
-typedef struct s_mlx
-{
-	void		*ptr;
-	t_window	*window;
-	t_image		img;
-}	t_mlx;
 
 typedef struct s_grid
 {
@@ -48,12 +35,21 @@ typedef struct s_grid
 	double	im_max;
 }	t_grid;
 
-t_window	define_window(int width, int height);
-t_grid		define_grid(int re_min, int re_max, int im_min, int im_max);
-t_mlx		define_mlx(t_window win);
-t_image		define_img(void *mlx_ptr, t_window window);
+// note: img is not a pointer!
+typedef struct s_mlx_data
+{
+	int		width;
+	int		heigth;
+	void	*mlx_p;
+	void	*win_p;
+	t_image	img;
+	t_grid	grid;
+}	t_mlx_data;
 
+t_mlx_data	define_mlx_window(void);
+t_grid		define_grid(int re_min, int re_max, int im_min, int im_max);
+t_image		define_img(void *mlx_p, int height, int width);
 void		add_pixel(t_image *img, int x, int y, int color);
-void		calc_mandelbrot(t_window window, t_grid grid, t_image *img);
+void		calc_mandelbrot(t_mlx_data *mlx);
 
 #endif
