@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 17:34:54 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/09 22:00:49 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/10 14:03:55 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,24 @@ void	add_pixel(t_image *img, int x, int y, int color)
 
 	pix = img->pixel_data + y * img->size_line + x * (img->bits_per_pixel / 8);
 	*(unsigned int *)pix = color;
+}
+
+void	clear_image(t_mlx_data *mlx)
+{
+	t_image		img;
+	int			x;
+	int			y;
+
+	img = mlx->img;
+	x = 0;
+	while (x < mlx->width)
+	{
+		y = 0;
+		while (y < mlx->heigth)
+		{
+			add_pixel(&img, x, y, 0x00000000);
+			y++;
+		}
+		x++;
+	}
 }

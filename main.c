@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/09 22:00:17 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/10 14:12:20 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 int	key_event_handler(int keycode, t_mlx_data *mlx)
 {
 	printf("keycode: %d\n", keycode);
-	// Esc
-	if (keycode == 53)
+	if (keycode == 53) // Esc
 	{
 		mlx_destroy_image(mlx->mlx_p, mlx->img.img_p);
 		mlx_destroy_window(mlx->mlx_p, mlx->win_p);
 		exit(0);
 	}
-	// z
-	if (keycode == 6)
+	if (keycode == 6) // z
 	{
+		clear_image(mlx);
 		calc_mandelbrot(mlx);
 		mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img_p, 0, 0);
 	}
