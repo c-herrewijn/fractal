@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/03 13:18:33 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/10 15:06:30 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/10 15:25:05 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	calc_mandelbrot(t_mlx_data *mlx)
 
 	img = mlx->img;
 	x = 0;
+	clear_image(mlx);
 	while (x < mlx->width)
 	{
 		cplx_re = mlx->grid.re_min

@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 17:34:54 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/10 14:54:58 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/10 15:31:16 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,5 @@ void	clear_image(t_mlx_data *mlx)
 		}
 		x++;
 	}
+	mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img_p, 0, 0);
 }
