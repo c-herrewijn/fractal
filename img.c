@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 17:34:54 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/10 14:03:55 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/10 14:54:58 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ t_mlx_data	define_mlx_window(void)
 	win.img = define_img(mlx_p, width, height);
 	win.width = width;
 	win.heigth = height;
-	win.grid = define_grid(0, 0, 0, 0);
+	win.grid = define_grid(0.0, 0.0, 0.0, 0.0);
 	return (win);
 }
 
-t_grid	define_grid(int re_min, int re_max, int im_min, int im_max)
+t_grid	define_grid(double re_min, double re_max, double im_min, double im_max)
 {
 	t_grid	grid;
 
