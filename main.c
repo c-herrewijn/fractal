@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/10 16:58:06 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/16 14:33:19 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	key_event_handler(int keycode, t_mlx_data *mlx)
 
 	// todo: don't calc fractal with other keys!!
 	calc_mandelbrot(mlx);
-	print_grid(mlx);
 	mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img_p, 0, 0);
 	return (1);
 }
