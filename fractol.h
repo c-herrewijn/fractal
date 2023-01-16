@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:06:50 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/10 16:58:39 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/16 20:56:12 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_grid
 	double	im_max;
 }	t_grid;
 
-// note: img is not a pointer!
 typedef struct s_mlx_data
 {
 	int		width;
@@ -51,11 +50,13 @@ t_grid		define_grid(double re_min, double re_max,
 				double im_min, double im_max);
 t_image		define_img(void *mlx_p, int height, int width);
 void		add_pixel(t_image *img, int x, int y, int color);
-void		calc_mandelbrot(t_mlx_data *mlx);
+void		calc_mandelbrot(t_mlx_data *mlx, int (*f_color)(int));
 void		clear_image(t_mlx_data *mlx);
 void		zoom_grid(t_mlx_data *mlx, char direction);
 void		move_grid(t_mlx_data *mlx, char direction);
 void		set_default_grid(t_mlx_data *mlx);
+int			col_mod(int i);
+int			col_grad(int i);
 
 // debug
 void		print_grid(t_mlx_data *mlx);

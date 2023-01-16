@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/16 14:33:19 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/16 20:49:26 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	key_event_handler(int keycode, t_mlx_data *mlx)
 {
+	static char type = 'm';
+
 	printf("keycode: %d\n", keycode);
 	if (keycode == 53) // Esc
 	{
@@ -27,7 +29,7 @@ int	key_event_handler(int keycode, t_mlx_data *mlx)
 		set_default_grid(mlx);
 		return (1);
 	}
-	if (keycode == 46) // m
+	if (keycode == 2) // d
 		set_default_grid(mlx);
 	if (keycode == 6) // z
 		zoom_grid(mlx, 'i');
@@ -43,7 +45,16 @@ int	key_event_handler(int keycode, t_mlx_data *mlx)
 		move_grid(mlx, 'd');
 
 	// todo: don't calc fractal with other keys!!
-	calc_mandelbrot(mlx);
+	if (keycode == 5) // g
+		type = 'g';
+	if (keycode == 46) // m
+		type = 'm';
+
+	if (type == 'g')
+		calc_mandelbrot(mlx, col_grad);
+	if (type == 'm')
+		calc_mandelbrot(mlx, col_mod);
+	
 	mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img_p, 0, 0);
 	return (1);
 }
