@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 14:28:08 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/18 17:26:48 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/18 21:46:58 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,11 @@ void	pos_zoom_grid(t_mlx_data *mlx, int x, int y, char direction)
 	}
 	if (direction == 'o')
 	{
-		// todo;
-		puts("todo: mouse zoom out!");
+		mlx->grid.re_min -= (0.25 * (re_click - mlx->grid.re_min));
+		mlx->grid.re_max += (0.25 * (mlx->grid.re_max - re_click));
+		mlx->grid.im_min -= (0.25 * (im_click - mlx->grid.im_min));
+		mlx->grid.im_max += (0.25 * (mlx->grid.im_max - im_click));
 	}
-
-	// debug
-	printf("re_click %LF\nim_click %LF\n", re_click, im_click);
-	printf("step_re %LF\nstep_im %LF\n", step_re, step_im);
 }
 
 void	zoom_grid(t_mlx_data *mlx, char direction)
