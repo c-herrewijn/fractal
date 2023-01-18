@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/03 13:18:33 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/16 20:53:33 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/17 16:25:21 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ int	col_grad(int i)
 }
 
 // mandelbrot test
-static int	m_test(const double re, const double im, int depth)
+static int	m_test(const long double re, const long double im, int depth)
 {
 	int		i;
-	double	z_re;
-	double	z_im;
-	double	re_tmp;
-	double	im_tmp;
+	long double	z_re;
+	long double	z_im;
+	long double	re_tmp;
+	long double	im_tmp;
 
 	z_re = re;
 	z_im = im;
@@ -61,11 +61,11 @@ static int	m_test(const double re, const double im, int depth)
 
 void	calc_mandelbrot(t_mlx_data *mlx, int (*f_color)(int))
 {
-	t_image		img;
-	double		cplx_re;
-	int			x;
-	double		cplx_im;
-	int			y;
+	t_image			img;
+	long double		cplx_re;
+	int				x;
+	long double		cplx_im;
+	int				y;
 
 	img = mlx->img;
 	x = 0;
@@ -73,11 +73,11 @@ void	calc_mandelbrot(t_mlx_data *mlx, int (*f_color)(int))
 	while (x < mlx->width)
 	{
 		cplx_re = mlx->grid.re_min
-			+ ((double)x / mlx->width) * (mlx->grid.re_max - mlx->grid.re_min);
+			+ ((long double)x / mlx->width) * (mlx->grid.re_max - mlx->grid.re_min);
 		y = 0;
 		while (y < mlx->heigth)
 		{
-			cplx_im = mlx->grid.im_min + ((double)y / mlx->heigth)
+			cplx_im = mlx->grid.im_min + ((long double)y / mlx->heigth)
 				* (mlx->grid.im_max - mlx->grid.im_min);
 			add_pixel(&img, x, y, f_color(m_test(cplx_re, cplx_im, 128)));
 			y++;

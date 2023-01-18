@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   zoom.c                                             :+:    :+:            */
+/*   grid.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 14:28:08 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/10 17:07:06 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/17 16:44:34 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	zoom_grid(t_mlx_data *mlx, char direction)
 {
-	double	step_re;
-	double	step_im;
+	long double	step_re;
+	long double	step_im;
 
 	step_re = (mlx->grid.re_max - mlx->grid.re_min);
 	step_im = (mlx->grid.im_max - mlx->grid.im_min);
@@ -37,8 +37,8 @@ void	zoom_grid(t_mlx_data *mlx, char direction)
 
 void	move_grid(t_mlx_data *mlx, char direction)
 {
-	double	step_re;
-	double	step_im;
+	long double	step_re;
+	long double	step_im;
 
 	step_re = (mlx->grid.re_max - mlx->grid.re_min) * 0.1;
 	step_im = (mlx->grid.im_max - mlx->grid.im_min) * 0.1;
@@ -72,7 +72,7 @@ void	set_default_grid(t_mlx_data *mlx)
 // debug!
 void	print_grid(t_mlx_data *mlx)
 {
-	printf("re_min %lf\n re_max %lf\n im_min %lf\n im_max %lf\n\n",
+	printf("re_min %Lf\n re_max %Lf\n im_min %Lf\n im_max %Lf\n\n",
 		mlx->grid.re_min,
 		mlx->grid.re_max,
 		mlx->grid.im_min,
