@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/16 20:49:26 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/18 17:10:25 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ int	key_event_handler(int keycode, t_mlx_data *mlx)
 
 	printf("keycode: %d\n", keycode);
 	if (keycode == 53) // Esc
-	{
-		mlx_destroy_image(mlx->mlx_p, mlx->img.img_p);
-		mlx_destroy_window(mlx->mlx_p, mlx->win_p);
 		exit(0);
-	}
 	if (keycode == 8) // c
 	{
 		clear_image(mlx);
@@ -39,9 +35,9 @@ int	key_event_handler(int keycode, t_mlx_data *mlx)
 		move_grid(mlx, 'l');
 	if (keycode == 124) // right
 		move_grid(mlx, 'r');
-	if (keycode == 125) // up
+	if (keycode == 126) // up
 		move_grid(mlx, 'u');
-	if (keycode == 126) // down
+	if (keycode == 125) // down
 		move_grid(mlx, 'd');
 
 	// todo: don't calc fractal with other keys!!
@@ -54,7 +50,6 @@ int	key_event_handler(int keycode, t_mlx_data *mlx)
 		calc_mandelbrot(mlx, col_grad);
 	if (type == 'm')
 		calc_mandelbrot(mlx, col_mod);
-	
 	mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img_p, 0, 0);
 	return (1);
 }

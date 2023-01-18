@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/03 13:18:33 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/17 16:25:21 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/18 17:09:05 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	calc_mandelbrot(t_mlx_data *mlx, int (*f_color)(int))
 		y = 0;
 		while (y < mlx->heigth)
 		{
-			cplx_im = mlx->grid.im_min + ((long double)y / mlx->heigth)
+			cplx_im = mlx->grid.im_max - ((long double)y / mlx->heigth)
 				* (mlx->grid.im_max - mlx->grid.im_min);
 			add_pixel(&img, x, y, f_color(m_test(cplx_re, cplx_im, 128)));
 			y++;
