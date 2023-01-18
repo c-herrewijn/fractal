@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 17:34:54 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/18 19:27:21 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/18 19:34:14 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ t_mlx_data	define_mlx_window(void)
 	return (win);
 }
 
-t_grid	define_grid(long double re_min, long double re_max, long double im_min, long double im_max)
+t_grid	define_grid(long double re_min, long double re_max,
+	long double im_min, long double im_max)
 {
 	t_grid	grid;
 
