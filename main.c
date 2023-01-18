@@ -6,11 +6,17 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/18 17:10:25 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/18 17:13:38 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+int	close_handler(t_mlx_data *mlx)
+{
+	(void)mlx;
+	exit(0);
+}
 
 int	key_event_handler(int keycode, t_mlx_data *mlx)
 {
@@ -60,6 +66,7 @@ int	main(void)
 
 	mlx_data = define_mlx_window();
 	set_default_grid(&mlx_data);
+	mlx_hook(mlx_data.win_p, 17, 0, close_handler, &mlx_data);
 	mlx_key_hook(mlx_data.win_p, key_event_handler, &mlx_data);
 	mlx_loop(mlx_data.mlx_p);
 }
