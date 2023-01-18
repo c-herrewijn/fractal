@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/18 17:28:50 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/18 22:01:11 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	close_handler(t_mlx_data *mlx)
 
 int	mouse_event_handler(int button, int x, int y, t_mlx_data *mlx)
 {
-	if (button == 1 || button == 4)
+	if (button == 4)
 		pos_zoom_grid(mlx, x, y, 'i');
-	if (button == 2 || button == 5)
+	if (button == 5)
 		pos_zoom_grid(mlx, x, y, 'o');
 	calc_mandelbrot(mlx, col_mod);
 	mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img_p, 0, 0);
