@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 17:34:54 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/17 16:24:28 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/18 19:27:21 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_grid	define_grid(long double re_min, long double re_max, long double im_min, l
 	return (grid);
 }
 
-t_image	define_img(void *mlx_p, int height, int width)
+t_image	define_img(void *mlx_p, int width, int height)
 {
 	t_image	img;
 
