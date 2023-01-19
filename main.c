@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/19 11:13:23 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/19 12:46:39 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ int	mouse_event_handler(int button, int x, int y, t_mlx_data *mlx)
 int	key_event_handler(int keycode, t_mlx_data *mlx)
 {
 	static char	type = 'm';
+	t_cplx		julia_test; // DEBUG!!
+
+	// testing!
+	julia_test.re = -1.5;
+	julia_test.im = 0.0;
 
 	printf("keycode: %d\n", keycode);
 	if (keycode == 53) // Esc
@@ -60,7 +65,7 @@ int	key_event_handler(int keycode, t_mlx_data *mlx)
 	
 	if (keycode == 38) // j
 	{
-		calc_julia(mlx, col_mod, -1.5, 0.0);
+		calc_julia(mlx, col_mod, julia_test);
 		mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img_p, 0, 0);
 		return (1);
 	}
