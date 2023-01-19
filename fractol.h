@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:06:50 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/18 19:28:46 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/19 10:58:56 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ t_grid		define_grid(long double re_min, long double re_max,
 t_image		define_img(void *mlx_p, int width, int height);
 void		add_pixel(t_image *img, int x, int y, int color);
 void		calc_mandelbrot(t_mlx_data *mlx, int (*f_color)(int));
+void		calc_julia(t_mlx_data *mlx, int (*f_color)(int),
+				long double c_re, long double c_im);
 void		clear_image(t_mlx_data *mlx);
 void		zoom_grid(t_mlx_data *mlx, char direction);
 void		move_grid(t_mlx_data *mlx, char direction);

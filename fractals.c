@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/03 13:18:33 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/19 11:11:04 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/19 11:20:21 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,56 @@ void	calc_mandelbrot(t_mlx_data *mlx, int (*f_color)(int))
 			cplx_im = mlx->grid.im_max - ((long double)y / mlx->heigth)
 				* (mlx->grid.im_max - mlx->grid.im_min);
 			add_pixel(&img, x, y, f_color(m_test(cplx_re, cplx_im, 128)));
+			y++;
+		}
+		x++;
+	}
+}
+
+static int	j_test(long double re, long double im, long double c_re, long double c_im, int depth)
+{
+	int			i;
+	long double	z_re;
+	long double	z_im;
+	long double	re_tmp;
+
+	z_re = re;
+	z_im = im;
+	i = 0;
+	while (i < depth)
+	{
+		if ((z_re * z_re) + (z_im * z_im) >= 4)
+			return (i);
+		re_tmp = (z_re * z_re) - (z_im * z_im) + c_re;
+		z_im = 2 * (z_re * z_im) + c_im;
+		z_re = re_tmp;
+		i++;
+	}
+	return (-1);
+}
+
+void	calc_julia(t_mlx_data *mlx, int (*f_color)(int),
+			long double c_re, long double c_im)
+{
+	t_image			img;
+	long double		cplx_re;
+	int				x;
+	long double		cplx_im;
+	int				y;
+
+	img = mlx->img;
+	x = 0;
+	clear_image(mlx);
+	while (x < mlx->width)
+	{
+		cplx_re = mlx->grid.re_min + ((long double)x / mlx->width)
+			* (mlx->grid.re_max - mlx->grid.re_min);
+		y = 0;
+		while (y < mlx->heigth)
+		{
+			cplx_im = mlx->grid.im_max - ((long double)y / mlx->heigth)
+				* (mlx->grid.im_max - mlx->grid.im_min);
+			add_pixel(&img, x, y, f_color(j_test(cplx_re, cplx_im, c_re, c_im, 128)));
 			y++;
 		}
 		x++;

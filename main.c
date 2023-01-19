@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/19 10:23:19 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/19 11:13:23 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,13 @@ int	key_event_handler(int keycode, t_mlx_data *mlx)
 		move_grid(mlx, 'u');
 	if (keycode == 125) // down
 		move_grid(mlx, 'd');
+	
+	if (keycode == 38) // j
+	{
+		calc_julia(mlx, col_mod, -1.5, 0.0);
+		mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img_p, 0, 0);
+		return (1);
+	}
 
 	// todo: don't calc fractal with other keys!!
 	if (keycode == 5) // g
