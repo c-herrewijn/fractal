@@ -1,6 +1,6 @@
 NAME = fractol
 FLAGS = -Wall -Wextra -Werror
-SRCS = main.c img.c mandelbrot.c grid.c
+SRCS = main.c img.c mandelbrot.c grid.c color.c
 OBJS = $(SRCS:.c=.o)
 LIBFTDIR = libft
 LIBFTNAME = libft.a

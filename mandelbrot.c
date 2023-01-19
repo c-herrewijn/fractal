@@ -6,36 +6,14 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/03 13:18:33 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/18 21:56:56 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/19 11:11:04 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-// modulo base coloring
-// i = -1 means inside the fractal body (so black)
-int	col_mod(int i)
-{
-	int	modulo_nr;
-
-	modulo_nr = i % 7;
-	if (i == -1)
-		return (0x00000000);
-	else
-		return (0x00880000 + (modulo_nr * 0x00112222));
-}
-
-// gradient based coloring (assumes depth 128)
-int	col_grad(int i)
-{
-	if (i == -1)
-		return (0x00000000);
-	else
-		return (0x00800000 + (i * 0x00010202));
-}
-
 // mandelbrot test
-static int	m_test(const long double re, const long double im, int depth)
+static int	m_test(long double re, long double im, int depth)
 {
 	int			i;
 	long double	z_re;
