@@ -12,26 +12,26 @@ MINILIBX_NAME = libmlx.a
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT_DIR)/$(LIBFTNAME) $(MINILIBX_DIR)/$(MINILIBX_NAME)
-	$(CC) $(FLAGS) $(OBJS) $(LIBFT_DIR)/$(LIBFTNAME) $(MINILIBX_DIR)/$(MINILIBX_NAME) -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(FLAGS) $^ -framework OpenGL -framework AppKit -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c 
 	mkdir -p $(OBJ_DIR)
 	$(CC) -c $(FLAGS) $< -o $@
 
 $(LIBFT_DIR)/$(LIBFTNAME):
-	cd $(LIBFT_DIR) ; make bonus
+	$(MAKE) -C $(LIBFT_DIR) bonus
 
 $(MINILIBX_DIR)/$(MINILIBX_NAME):
-	cd $(MINILIBX_DIR) ; make
+	$(MAKE) -C $(MINILIBX_DIR)
 
 clean:
 	rm -rf $(OBJ_DIR)
-	cd $(LIBFT_DIR) ; make clean
-	cd $(MINILIBX_DIR) ; make clean
+	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(MINILIBX_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
-	cd $(LIBFT_DIR) ; make fclean
+	$(MAKE) -C $(LIBFT_DIR) fclean	
 
 re: fclean all
 
