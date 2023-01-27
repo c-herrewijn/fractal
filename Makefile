@@ -1,7 +1,7 @@
 NAME = fractol
 FLAGS = -Wall -Wextra -Werror
 SRC_DIR = src
-SRCS = main.c img.c fractals.c grid.c color.c
+SRCS = main.c img.c fractals.c grid.c color.c float.c
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 LIBFT_DIR = libft

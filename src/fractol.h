@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:06:50 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/23 16:19:52 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/01/27 22:05:15 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define FRACTOL_H
 # include <stdio.h>
 # include <stdlib.h>
-# include <math.h>
+# include <unistd.h>
+# include <float.h>
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
 
@@ -65,6 +66,7 @@ void		pos_zoom_grid(t_mlx_data *mlx, int x, int y, char direction);
 void		set_default_grid(t_mlx_data *mlx);
 int			col_mod(int i);
 int			col_grad(int i);
+int			is_valid_julia_coord(char *str);
 
 // debug
 void		print_grid(t_mlx_data *mlx);
