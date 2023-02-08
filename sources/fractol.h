@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:06:50 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/08 13:05:21 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/08 14:44:05 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,16 @@ typedef struct s_mlx_data
 	int				width;
 	int				heigth;
 	int				fractal_nr;
+	int				color_func_nr;
 	int				color;
 	void			*mlx_p;
 	void			*win_p;
-	int				color_func_nr;
 	t_cplx			julia_coord;
 	t_image			img;
 	t_grid			grid;
 }	t_mlx_data;
 
-t_mlx_data		define_mlx_window(int fract_nr);
+t_mlx_data		define_mlx_window(void);
 t_grid			define_grid(long double re_min, long double re_max,
 					long double im_min, long double im_max);
 t_image			define_img(void *mlx_p, int width, int height);
@@ -83,6 +83,8 @@ long double		ft_atof_ld(char *str);
 t_cplx			create_julia_cplx(char *str_re, char *str_im);
 t_color_func	get_color_func(int i);
 void			rotate_color(t_mlx_data *mlx);
+void			rotate_fractal(t_mlx_data *mlx);
+t_cplx			get_center_coord(t_mlx_data *mlx);
 
 // debug
 void			print_grid(t_mlx_data *mlx);

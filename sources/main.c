@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/08 09:51:57 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/08 14:14:39 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,12 @@ int	main(int argc, char *argv[])
 		print_manual();
 	else
 	{
+		mlx_data = define_mlx_window();
 		if (argc == 2)
-		{
-			mlx_data = define_mlx_window(1);
 			calc_fractal(&mlx_data);
-		}
 		else
 		{
-			mlx_data = define_mlx_window(2);
+			mlx_data.fractal_nr = 1;
 			mlx_data.julia_coord = create_julia_cplx(argv[2], argv[3]);
 			calc_fractal(&mlx_data);
 		}

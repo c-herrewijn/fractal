@@ -6,13 +6,13 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 17:34:54 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/08 12:50:29 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/08 14:12:29 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_mlx_data	define_mlx_window(int fract_nr)
+t_mlx_data	define_mlx_window(void)
 {
 	t_mlx_data	mlx_data;
 	int			width;
@@ -28,7 +28,7 @@ t_mlx_data	define_mlx_window(int fract_nr)
 	mlx_data.grid = define_grid(-2, 2, -2, 2);
 	mlx_data.width = width;
 	mlx_data.heigth = height;
-	mlx_data.fractal_nr = fract_nr;
+	mlx_data.fractal_nr = 0;
 	mlx_data.color_func_nr = 0;
 	return (mlx_data);
 }

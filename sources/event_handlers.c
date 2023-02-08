@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 18:14:51 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/08 12:55:57 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/08 16:57:17 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	mouse_event_handler(int button, int x, int y, t_mlx_data *mlx)
 /   6 = z		zoom in
 /   7 = x		zoom out
 /	8 = c		change color function
+/   3 = f		change fractal
 / 123 = left	pan left
 / 124 = right	pan right
 / 125 = down	pan up
@@ -46,7 +47,7 @@ int	mouse_event_handler(int button, int x, int y, t_mlx_data *mlx)
 int	key_event_handler(int keycode, t_mlx_data *mlx)
 {
 	if ((keycode == 53) || (keycode == 6) || (keycode == 7) || (keycode == 8)
-		|| ((keycode >= 123) && (keycode <= 126)))
+		|| (keycode == 3) || ((keycode >= 123) && (keycode <= 126)))
 	{		
 		if (keycode == 53)
 			close_window(mlx);
@@ -64,6 +65,8 @@ int	key_event_handler(int keycode, t_mlx_data *mlx)
 			move_grid(mlx, 'u');
 		if (keycode == 8)
 			rotate_color(mlx);
+		if (keycode == 3)
+			rotate_fractal(mlx);
 		calc_fractal(mlx);
 	}
 	return (1);

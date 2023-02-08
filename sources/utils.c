@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 18:05:41 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/08 10:04:15 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/08 17:04:33 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,11 @@ long double	ft_atof_ld(char *str)
 		* (ld_int_part + ld_fract_part));
 }
 
-// assumes the input string is already validated!
-t_cplx	create_julia_cplx(char *str_re, char *str_im)
+t_cplx	get_center_coord(t_mlx_data *mlx)
 {
-	t_cplx	cplx;
+	t_cplx	z;
 
-	cplx.re = ft_atof_ld(str_re);
-	cplx.im = ft_atof_ld(str_im);
-	return (cplx);
+	z.re = (mlx->grid.re_max - mlx->grid.re_min) / 2;
+	z.im = (mlx->grid.im_max - mlx->grid.im_min) / 2;
+	return (z);
 }
