@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstdelone_bonus.c                               :+:    :+:            */
+/*   ft_lstlast.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/19 15:09:06 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/10/23 13:31:21 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:09:45 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/19 15:09:47 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-deletest the content of the node, by applying functtion (del)
-then deletes the node
-*/
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (lst && del)
-	{
-		if (lst->content && del)
-			del(lst->content);
-		free(lst);
-	}
+	t_list	*lst_i;
+
+	if (lst == NULL)
+		return (NULL);
+	lst_i = lst;
+	while (lst_i->next && lst_i->next != lst)
+		lst_i = lst_i->next;
+	return (lst_i);
 }

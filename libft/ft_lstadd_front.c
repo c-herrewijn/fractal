@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstlast_bonus.c                                 :+:    :+:            */
+/*   ft_lstadd_front.c                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/19 15:09:45 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/10/19 15:09:47 by cherrewi      ########   odam.nl         */
+/*   Created: 2022/10/19 15:08:47 by cherrewi      #+#    #+#                 */
+/*   Updated: 2022/10/23 13:30:22 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+/*
+the new item is added to the front
+the address of the front of the linked list is not chagned
+*/
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*lst_i;
-
-	if (lst == NULL)
-		return (NULL);
-	lst_i = lst;
-	while (lst_i->next && lst_i->next != lst)
-		lst_i = lst_i->next;
-	return (lst_i);
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }
