@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fractals.c                                         :+:    :+:            */
+/*   fractal.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/03 13:18:33 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/23 17:00:53 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/07 18:03:06 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-t_cplx	create_cplx(long double re, long double im)
-{
-	t_cplx	cplx;
-
-	cplx.re = re;
-	cplx.im = im;
-	return (cplx);
-}
 
 static int	m_test(t_cplx c, int depth)
 {
@@ -111,4 +102,14 @@ void	calc_julia(t_mlx_data *mlx, int (*f_color)(int), t_cplx c)
 		}
 		x++;
 	}
+	mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img_p, 0, 0);
+}
+
+void	calc_fractal(t_mlx_data *mlx)
+{
+	if (mlx->fractal_nr == 1)
+		calc_mandelbrot(mlx, mlx->f_color);
+	if (mlx->fractal_nr == 2)
+		calc_julia(mlx, mlx->f_color, mlx->julia_coord);
+	mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img_p, 0, 0);
 }

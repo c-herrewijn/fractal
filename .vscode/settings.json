@@ -7,6 +7,13 @@
         "iterator": "c",
         "string": "c",
         "string_view": "c",
-        "vector": "c"
+        "vector": "c",
+        "sstream": "c",
+        "memory": "c",
+        "utility": "c",
+        "fractol.h": "c",
+        "bitset": "c",
+        "test_head.h": "c",
+        "ios": "c"
     }
 }
