@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fractal.c                                          :+:    :+:            */
+/*   fractals.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/03 13:18:33 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/07 18:03:06 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/08 13:05:05 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,12 @@ void	calc_julia(t_mlx_data *mlx, int (*f_color)(int), t_cplx c)
 
 void	calc_fractal(t_mlx_data *mlx)
 {
+	t_color_func	color_func;
+
+	color_func = get_color_func(mlx->color_func_nr);
 	if (mlx->fractal_nr == 1)
-		calc_mandelbrot(mlx, mlx->f_color);
+		calc_mandelbrot(mlx, color_func);
 	if (mlx->fractal_nr == 2)
-		calc_julia(mlx, mlx->f_color, mlx->julia_coord);
+		calc_julia(mlx, color_func, mlx->julia_coord);
 	mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img_p, 0, 0);
 }

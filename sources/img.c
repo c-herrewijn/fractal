@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 17:34:54 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/07 18:12:00 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/08 12:50:29 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_mlx_data	define_mlx_window(int fract_nr)
 {
-	t_mlx_data	win;
+	t_mlx_data	mlx_data;
 	int			width;
 	int			height;
 	void		*mlx_p;
@@ -22,15 +22,15 @@ t_mlx_data	define_mlx_window(int fract_nr)
 	width = 640;
 	height = 640;
 	mlx_p = mlx_init();
-	win.mlx_p = mlx_p;
-	win.win_p = mlx_new_window(mlx_p, width, height, "Fract-ol");
-	win.img = define_img(mlx_p, width, height);
-	win.grid = define_grid(-2, 2, -2, 2);
-	win.width = width;
-	win.heigth = height;
-	win.fractal_nr = fract_nr;
-	win.f_color = col_mod;
-	return (win);
+	mlx_data.mlx_p = mlx_p;
+	mlx_data.win_p = mlx_new_window(mlx_p, width, height, "Fract-ol");
+	mlx_data.img = define_img(mlx_p, width, height);
+	mlx_data.grid = define_grid(-2, 2, -2, 2);
+	mlx_data.width = width;
+	mlx_data.heigth = height;
+	mlx_data.fractal_nr = fract_nr;
+	mlx_data.color_func_nr = 0;
+	return (mlx_data);
 }
 
 t_grid	define_grid(long double re_min, long double re_max,
