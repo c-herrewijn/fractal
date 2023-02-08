@@ -1,5 +1,5 @@
-# include "../src/fractol.h"
-// gcc float_test.c ../src/julia_validations.c ../libft/ft_isdigit.c
+# include "../sources/fractol.h"
+// gcc float_test.c ../sources/julia_validations.c ../libft/ft_isdigit.c
 
 int	is_valid_nr_decimals_ldbl(char *str);
 int	is_valid_range_abs(char *str);

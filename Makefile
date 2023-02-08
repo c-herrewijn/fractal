@@ -1,6 +1,6 @@
 NAME = fractol
 FLAGS = -Wall -Wextra -Werror
-SRC_DIR = src
+SRC_DIR = sources
 SRCS = color.c event_handlers.c fractals.c grid.c img.c julia_validations.c main.c utils.c
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
