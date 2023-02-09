@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:06:50 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/09 13:05:39 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/09 13:43:53 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int				close_window(t_mlx_data *mlx);
 void			set_default_grid(t_mlx_data *mlx);
 int				col_mod(int i);
 int				col_grad(int i);
+int				col_mod_grad(int i);
 int				is_valid_julia_coord(char *str);
 long double		ft_atof_ld(char *str);
 t_cplx			create_julia_cplx(char *str_re, char *str_im);
