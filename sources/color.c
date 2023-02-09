@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/11 15:07:24 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/09 14:09:17 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/09 14:19:03 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	col_mod_grad(int i)
 	int	b;
 	int	total;
 
-	total = r + g + b;
 	if (i == -1)
 		return (0x00000000);
 	else
@@ -67,6 +66,7 @@ int	col_mod_grad(int i)
 		r = ((0x12 + 6 * i) % 256) * 256 * 256;
 		g = ((0x25 + 8 * i) % 256) * 256;
 		b = ((0x80 + 4 * i) % 256);
+		total = r + g + b;
 		return (total);
 	}
 }
