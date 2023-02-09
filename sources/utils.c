@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 18:05:41 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/08 17:04:33 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/09 12:08:51 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_cplx	get_center_coord(t_mlx_data *mlx)
 {
 	t_cplx	z;
 
-	z.re = (mlx->grid.re_max - mlx->grid.re_min) / 2;
-	z.im = (mlx->grid.im_max - mlx->grid.im_min) / 2;
+	z.re = mlx->grid.re_min + (mlx->grid.re_max - mlx->grid.re_min) / 2;
+	z.im = mlx->grid.im_min + (mlx->grid.im_max - mlx->grid.im_min) / 2;
 	return (z);
 }

@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:06:50 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/08 14:44:05 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/09 12:11:37 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,4 @@ t_color_func	get_color_func(int i);
 void			rotate_color(t_mlx_data *mlx);
 void			rotate_fractal(t_mlx_data *mlx);
 t_cplx			get_center_coord(t_mlx_data *mlx);
-
-// debug
-void			print_grid(t_mlx_data *mlx);
 #endif

@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 14:28:08 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/01/18 21:46:58 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/09 12:11:21 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,14 +94,4 @@ void	move_grid(t_mlx_data *mlx, char direction)
 void	set_default_grid(t_mlx_data *mlx)
 {
 	mlx->grid = define_grid(-2, 2, -2, 2);
-}
-
-// debug!
-void	print_grid(t_mlx_data *mlx)
-{
-	printf("re_min %Lf\n re_max %Lf\n im_min %Lf\n im_max %Lf\n\n",
-		mlx->grid.re_min,
-		mlx->grid.re_max,
-		mlx->grid.im_min,
-		mlx->grid.im_max);
 }
