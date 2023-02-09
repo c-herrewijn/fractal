@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/03 13:18:33 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/08 14:38:15 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/09 13:32:09 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ void	rotate_fractal(t_mlx_data *mlx)
 	if (fractal_nr == 1)
 	{
 		mlx->julia_coord = get_center_coord(mlx);
-	}	
+	}
+	mlx->grid = define_grid(-2, 2, -2, 2);
 }

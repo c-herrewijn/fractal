@@ -6,13 +6,12 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:06:50 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/09 12:11:37 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/09 13:05:39 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
