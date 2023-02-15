@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 18:14:51 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/09 12:49:46 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/09 14:29:35 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	key_event_handler(int keycode, t_mlx_data *mlx)
 {
 	if ((keycode == 53) || (keycode == 6) || (keycode == 7) || (keycode == 8)
 		|| (keycode == 3) || ((keycode >= 123) && (keycode <= 126)))
-	{		
+	{
 		update_fractal(keycode, mlx);
 	}
 	else

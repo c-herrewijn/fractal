@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/27 20:03:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/08 14:14:39 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/09 14:29:40 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,6 @@ int	main(int argc, char *argv[])
 		mlx_mouse_hook (mlx_data.win_p, mouse_event_handler, &mlx_data);
 		mlx_key_hook(mlx_data.win_p, key_event_handler, &mlx_data);
 		mlx_loop(mlx_data.mlx_p);
-	}		
+	}
 	return (0);
 }

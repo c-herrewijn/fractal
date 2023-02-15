@@ -6,14 +6,14 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/27 19:13:05 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/08 11:23:38 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/09 14:31:04 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 /*
-* validates the string contains "2", optionally followed by a point and an 
+* validates the string contains "2", optionally followed by a point and an
 * arbitrary number of zeros
 */
 int	is_two(char *str)
@@ -57,9 +57,9 @@ int	is_valid_range_abs(char *str)
 	return (1);
 }
 
-/* 
+/*
 / validates that nr of significant digits in the string fit in a long double
-/ does NOT count leading zero's. 
+/ does NOT count leading zero's.
 / Note: ignores all non numeric chars including '.'!
 */
 int	is_valid_nr_decimals_ldbl(char *str)

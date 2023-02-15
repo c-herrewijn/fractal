@@ -6,13 +6,13 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 18:05:41 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/02/09 13:30:01 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/09 14:31:08 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/* 
+/*
 * converts a string to a long double
 * assumes the input string is already validated!
 */
