@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 15:08:27 by cherrewi      #+#    #+#                 */
-/*   Updated: 2022/10/23 13:21:25 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/02/09 14:29:55 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	ft_store_itoa_abs(char *str, size_t abs_n)
 	int	i;
 
 	if (str)
-	{		
+	{
 		i = get_nr_digits(abs_n) - 1;
 		while (i >= 0)
 		{
