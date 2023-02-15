@@ -14,7 +14,7 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT_DIR)/$(LIBFTNAME) $(MINILIBX_DIR)/$(MINILIBX_NAME)
 	$(CC) $(FLAGS) $^ -framework OpenGL -framework AppKit -o $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c 
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	mkdir -p $(OBJ_DIR)
 	$(CC) -c $(FLAGS) $< -o $@
 
@@ -31,7 +31,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C $(LIBFT_DIR) fclean	
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
